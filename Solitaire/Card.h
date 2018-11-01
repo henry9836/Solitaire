@@ -9,21 +9,16 @@ class Card {
 
 public:
 
-
 	float suit;
 	float value;
-
 
 
 	void cCard();
 	virtual ~Card();
 
 	void setSuit();
-	void getSuit();
+	float getSuit();
 	void setValue();
-	void getValue();
-
-
-
+	float getValue();
 
 };

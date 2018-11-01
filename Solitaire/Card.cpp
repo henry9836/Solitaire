@@ -59,17 +59,13 @@ void Card::setValue() {
 }
 
 //use this when you need to get a suit from a card
-void Card::getSuit(){
-
-
-
+float Card::getSuit(){
+	return suit; //returns suit float (1 = Spade, 2 = Club, 3 = Heart, 4 = Diamond)
 }
 
 
 //use this when you need to get a value from a card
-void Card::getValue(){
-
-
-
+float Card::getValue(){
+	return value; //returns float which is the value of the card (1 - Ace, 2-10, 11- Jack, 12 - Queen, 13 - King)
 }
 
