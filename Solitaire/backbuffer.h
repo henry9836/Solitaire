@@ -1,17 +1,23 @@
+//
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2018 Media Design School
+//
+// File Name     : backbffer.h
+// Description   : backbuffer headder file
+// Author        : Vaughan Webb, Harrison Orsbourne, henry oliver
+// Mail          : Vaughan.web8091@mediadesign.school.nz Harrison.ors7919@mediadesign.school.nz henery.oli7939@mediadesign.school.nz
 
 #if !defined(__BACKBUFFER_H__)
 #define __BACKBUFFER_H__
 
-// Library Includes
+
 #include <Windows.h>
 
-// Local Includes
 
-// Types
-
-// Constants
-
-// Prototypes
 class CBackBuffer
 {
     // Member Functions

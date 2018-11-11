@@ -1,26 +1,28 @@
-
+//
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2018 Media Design School
+//
+// File Name     : backgrounds.h
+// Description   : backgrounds headder file
+// Author        : Vaughan Webb, Harrison Orsbourne, henry oliver
+// Mail          : Vaughan.web8091@mediadesign.school.nz Harrison.ors7919@mediadesign.school.nz henery.oli7939@mediadesign.school.nz
 
 #pragma once
 
 #if !defined(__BACKGROUND_H__)
 #define __BACKGROUND_H__
 
-// Library Includes
-
-// Local Includes
 #include "entity.h"
 #include "EEnums.h"
-
-// Types
-
-// Constants
-
-// Prototypes
 class CSprite;
 
 class CBackGround : public CEntity
 {
-	// Member Functions
+
 public:
 	CBackGround();
 	virtual ~CBackGround();

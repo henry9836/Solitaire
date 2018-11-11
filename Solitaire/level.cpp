@@ -1,10 +1,20 @@
-
+//
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2018 Media Design School
+//
+// File Name     : level.cpp
+// Description   : level cpp file
+// Author        : Vaughan Webb, Harrison Orsbourne, henry oliver
+// Mail          : Vaughan.web8091@mediadesign.school.nz Harrison.ors7919@mediadesign.school.nz henery.oli7939@mediadesign.school.nz
 
 #include "Game.h"
 #include "card.h"
 #include "utils.h"
 #include "backbuffer.h"
-#include "framecounter.h"
 #include "background.h"
 #include <iostream>
 
@@ -478,9 +488,8 @@ bool CLevel::ReleaseIsValid(std::vector<CCard*>& _pileToReturn)
 	return false;
 }
 
-/*********
-* DealCards: Deal Cards with a specified number from the pickup deck
-**********/
+//Deal Cards with a specified number from the pickup deck
+
 void CLevel::DealCards(int _numCards, std::vector<CCard*>& _fromDeck, std::vector<CCard*>& _toDeck)
 {
 	unsigned int size = _fromDeck.size() - _numCards;		//Calculate number of cards to draw until
@@ -491,9 +500,8 @@ void CLevel::DealCards(int _numCards, std::vector<CCard*>& _fromDeck, std::vecto
 	}
 }
 
-/*********
-* DrawDeck: Draws the specified deck of cards 
-**********/
+//Draws the specified deck of cards 
+
 void CLevel::DrawDecks()
 {
 	int counter = 0;
@@ -502,7 +510,7 @@ void CLevel::DrawDecks()
 	{
 		if (!(*vec)->empty())								//Only draw if deck isnt empty
 		{
-			if (counter == 0)								//PickUp Deck======================
+			if (counter == 0)								//PickUp Deck
 			{
 				(*vec)->back()->SetFaceUp(false);
 
@@ -511,16 +519,16 @@ void CLevel::DrawDecks()
 
 				(*vec)->back()->Draw();							//Draw card onto screen
 			}
-			else if (counter == 1)							//Discard Deck=====================
+			else if (counter == 1)							//Discard Deck
 			{
 				(*vec)->back()->SetFaceUp(true);
 
-				(*vec)->back()->SetX(206 + m_iHalfDeckSizeX);	//Set the new width of the card
-				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	//Set the new height of the card
+				(*vec)->back()->SetX(206 + m_iHalfDeckSizeX);	
+				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	
 
-				(*vec)->back()->Draw();							//Draw card onto screen
+				(*vec)->back()->Draw();							
 			}
-			else if (counter == 2)							//B1 Deck=====================
+			else if (counter == 2)							//B1 Deck
 			{
 				it = (*vec)->begin();							//Start the iterator for each card in that deck
 				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
@@ -530,101 +538,101 @@ void CLevel::DrawDecks()
 					it++;										//Increase iterator
 				}
 			}
-			else if (counter == 3)							//B2 Deck=====================
+			else if (counter == 3)							//B2 Deck
 			{
-				it = (*vec)->begin();							//Start the iterator for each card in that deck
-				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
+				it = (*vec)->begin();							
+				while (it != (*vec)->end())						
 				{
 					(*it)->SetX(206 + m_iHalfDeckSizeX);
 					(*it)->SetY(235 + m_iHalfDeckSizeY);
-					it++;										//Increase iterator
+					it++;										
 				}
 			}
-			else if (counter == 4)							//B3 Deck=====================
+			else if (counter == 4)							//B3 Deck
 			{
-				it = (*vec)->begin();							//Start the iterator for each card in that deck
-				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
+				it = (*vec)->begin();							
+				while (it != (*vec)->end())						
 				{
 					(*it)->SetX(367 + m_iHalfDeckSizeX);
 					(*it)->SetY(235 + m_iHalfDeckSizeY);
-					it++;										//Increase iterator
+					it++;										
 				}
 			}
-			else if (counter == 5)							//B4 Deck=====================
+			else if (counter == 5)							//B4 Deck
 			{
-				it = (*vec)->begin();							//Start the iterator for each card in that deck
-				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
+				it = (*vec)->begin();							
+				while (it != (*vec)->end())						
 				{
 					(*it)->SetX(528 + m_iHalfDeckSizeX);
 					(*it)->SetY(235 + m_iHalfDeckSizeY);
-					it++;										//Increase iterator
+					it++;										
 				}
 			}
-			else if (counter == 6)							//B5 Deck=====================
+			else if (counter == 6)							//B5 Deck
 			{
-				it = (*vec)->begin();							//Start the iterator for each card in that deck
-				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
+				it = (*vec)->begin();							
+				while (it != (*vec)->end())						
 				{
 					(*it)->SetX(689 + m_iHalfDeckSizeX);
 					(*it)->SetY(235 + m_iHalfDeckSizeY);
-					it++;										//Increase iterator
+					it++;										
 				}
 			}
-			else if (counter == 7)							//B6 Deck=====================
+			else if (counter == 7)							//B6 Deck
 			{
-				it = (*vec)->begin();							//Start the iterator for each card in that deck
-				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
+				it = (*vec)->begin();							
+				while (it != (*vec)->end())						
 				{
 					(*it)->SetX(850 + m_iHalfDeckSizeX);
 					(*it)->SetY(235 + m_iHalfDeckSizeY);
-					it++;										//Increase iterator
+					it++;										
 				}
 			}
-			else if (counter == 8)							//B7 Deck=====================
+			else if (counter == 8)							//B7 Deck
 			{
-				it = (*vec)->begin();							//Start the iterator for each card in that deck
-				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
+				it = (*vec)->begin();							
+				while (it != (*vec)->end())						
 				{
 					(*it)->SetX(1011 + m_iHalfDeckSizeX);
 					(*it)->SetY(235 + m_iHalfDeckSizeY);
-					it++;										//Increase iterator
+					it++;										
 				}
 			}
-			else if(counter == 9)							//Spade Deck=====================
+			else if(counter == 9)							//Spade Deck
 			{
 				(*vec)->back()->SetFaceUp(true);
 
-				(*vec)->back()->SetX(528 + m_iHalfDeckSizeX);	//Set the new width of the card
-				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	//Set the new height of the card
+				(*vec)->back()->SetX(528 + m_iHalfDeckSizeX);	
+				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	
 
-				(*vec)->back()->Draw();							//Draw card onto screen
+				(*vec)->back()->Draw();							
 			}
-			else if (counter == 10)							//Heart Deck=====================
+			else if (counter == 10)							//Heart Deck
 			{
 				(*vec)->back()->SetFaceUp(true);
 
-				(*vec)->back()->SetX(689 + m_iHalfDeckSizeX);	//Set the new width of the card
-				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	//Set the new height of the card
+				(*vec)->back()->SetX(689 + m_iHalfDeckSizeX);	
+				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	
 
-				(*vec)->back()->Draw();							//Draw card onto screen
+				(*vec)->back()->Draw();							
 			}
-			else if (counter == 11)							//Club Deck=====================
+			else if (counter == 11)							//Club Deck
 			{
 				(*vec)->back()->SetFaceUp(true);
 
-				(*vec)->back()->SetX(850 + m_iHalfDeckSizeX);	//Set the new width of the card
-				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	//Set the new height of the card
+				(*vec)->back()->SetX(850 + m_iHalfDeckSizeX);	
+				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	
 
-				(*vec)->back()->Draw();							//Draw card onto screen
+				(*vec)->back()->Draw();							
 			}
-			else if (counter == 12)							//Diamond Deck=====================
+			else if (counter == 12)							//Diamond Deck
 			{
 				(*vec)->back()->SetFaceUp(true);
 
-				(*vec)->back()->SetX(1011 + m_iHalfDeckSizeX);	//Set the new width of the card
-				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	//Set the new height of the card
+				(*vec)->back()->SetX(1011 + m_iHalfDeckSizeX);	
+				(*vec)->back()->SetY(30 + m_iHalfDeckSizeY);	
 
-				(*vec)->back()->Draw();							//Draw card onto screen
+				(*vec)->back()->Draw();							
 			}
 			else if (counter == 13)
 			{
@@ -635,25 +643,25 @@ void CLevel::DrawDecks()
 				float height = (*vec)->front()->GetY();			//Get the current height of the cards
 				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
 				{
-					(*it)->SetX((*vec)->front()->GetX());						//Set the new height of the card
-					(*it)->SetY(height);						//Set the new height of the card
-					height += 30.0f;							//Give a 30px gap height between cards
+					(*it)->SetX((*vec)->front()->GetX());						
+					(*it)->SetY(height);						
+					height += 30.0f;							
 					(*it)->Draw();								//Draw card onto screen
 					it++;										//Increase iterator
 				}
 			}
 
 
-			if (counter >= 2 && counter <= 8)			//Board Decks=====================
+			if (counter >= 2 && counter <= 8)			//Board Decks
 			{
-				it = (*vec)->begin();							//Start the iterator for each card in that deck
-				float height = (*vec)->front()->GetY();			//Get the current height of the cards
-				while (it != (*vec)->end())						//If iterator has not reached the end of the vector
+				it = (*vec)->begin();							
+				float height = (*vec)->front()->GetY();			
+				while (it != (*vec)->end())						
 				{
-					(*it)->SetY(height);						//Set the new height of the card
-					height += 30.0f;							//Give a 30px gap height between cards
-					(*it)->Draw();								//Draw card onto screen
-					it++;										//Increase iterator
+					(*it)->SetY(height);						
+					height += 30.0f;							
+					(*it)->Draw();								
+					it++;										
 				}
 			}
 		}
@@ -661,9 +669,8 @@ void CLevel::DrawDecks()
 	}
 }
 
-/*********
-* ProcessDeck: Processes the specified deck of cards
-**********/
+//Processes the specified deck of cards
+
 void CLevel::ProcessDeck(float _fDeltaTick)
 {
 	//Iterate through list of all vectors
@@ -702,8 +709,8 @@ void CLevel::PlayerDrawsCard()
 		//draws one card at a time
 		else {
 			discardPileVector.push_back(pickupPileVector.back());
-			pickupPileVector.back()->SetX(206 + m_iHalfDeckSizeX);	//Set the new width of the card
-			pickupPileVector.back()->SetY(30 + m_iHalfDeckSizeY);	//Set the new width of the card
+			pickupPileVector.back()->SetX(206 + m_iHalfDeckSizeX);
+			pickupPileVector.back()->SetY(30 + m_iHalfDeckSizeY);
 			pickupPileVector.pop_back();
 		}
 	}

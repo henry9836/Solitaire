@@ -1,4 +1,15 @@
-
+//
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2018 Media Design School
+//
+// File Name     : main.cpp
+// Description   : main cpp file
+// Author        : Vaughan Webb, Harrison Orsbourne, henry oliver
+// Mail          : Vaughan.web8091@mediadesign.school.nz Harrison.ors7919@mediadesign.school.nz henery.oli7939@mediadesign.school.nz
 
 #include <windows.h>
 #include <windowsx.h>
@@ -14,7 +25,7 @@ CGame& game = CGame::GetInstance();
 HMENU g_hMenu;
 
 LRESULT CALLBACK
-WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
+WindowProc(HWND _hwnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 {
     switch (_uiMsg)
     {
@@ -40,6 +51,13 @@ WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
 		//show the instructions
 		case ID_ABOUT_INSTRUCTIONS: {
 		
+			MessageBox(_hwnd, L"Click and drag to move cards, and click to flip new cards", L"Instructions", MB_OK);
+			break;
+		}
+		case ID_ABOUT_AUTHOR: {
+
+			MessageBox(_hwnd, L"Harrison Orsbourne, Vaughan Webb, Henry Oliver", L"Authors", MB_OK);
+
 			break;
 		}
 		//quits the game
@@ -96,7 +114,7 @@ WindowProc(HWND _hWnd, UINT _uiMsg, WPARAM _wParam, LPARAM _lParam)
         default:break;
     } 
 
-    return (DefWindowProc(_hWnd, _uiMsg, _wParam, _lParam));
+    return (DefWindowProc(_hwnd, _uiMsg, _wParam, _lParam));
 }
 
 HWND 

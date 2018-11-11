@@ -1,4 +1,15 @@
-
+//
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2018 Media Design School
+//
+// File Name     : entinity.cpp
+// Description   : entinity cpp file
+// Author        : Vaughan Webb, Harrison Orsbourne, henry oliver
+// Mail          : Vaughan.web8091@mediadesign.school.nz Harrison.ors7919@mediadesign.school.nz henery.oli7939@mediadesign.school.nz
 
 
 #include "resource.h"
@@ -23,21 +34,15 @@ CEntity::~CEntity()
     m_pSprite = 0;
 }
 
-/********************
-* CEntity Initialiser: Initialises entity with specified sprite,
-* @parameter: _spriteType - Sprite to be initialised with entity
-* @return bool
-*********************/
+//Initialises entity with specified sprite,
+
 bool CEntity::Initialise()
 {
     return (true);
 }
 
-/********************
-* CEntity Initialiser: Initialises entity with specified sprite,
-* @parameter: _spriteType - Sprite to be initialised with entity
-* @return bool
-*********************/
+// Initialises entity with specified sprite,
+
 bool CEntity::Initialise(ESprite _eType)
 {
 	m_pSpriteFront = new CSprite(_eType);
@@ -60,9 +65,8 @@ void CEntity::Draw()
 	m_pSprite->Draw();
 }
 
-/************
-* Process: Calls the sprite's process function
-*************/
+// Calls the sprite's process function
+
 void
 CEntity::Process(float _fDeltaTick)
 {
@@ -72,11 +76,9 @@ CEntity::Process(float _fDeltaTick)
     m_pSprite->Process(_fDeltaTick);
 }
 
-/************
-* IsCollidingWith: Checks if the current entity is colliding with another
-* @parameter: e - Entity to check collision with
-* @return true if entities are colliding
-*************/
+
+// Checks if the current entity is colliding with another
+
 bool CEntity::IsCollidingWith(CEntity& e)
 {
 	bool colliding = false;
@@ -105,83 +107,67 @@ ESprite CEntity::GetCardType()
 	return m_eSpriteType;
 }
 
-/************
-* GetHeight: Gets the height of the entity/sprite
-* @return m_pSprite->GetHeight() - height of sprite
-*************/
+
+//Gets the height of the entity/sprite
+
 float  CEntity::GetHeight() const
 {
     return (static_cast<float>(m_pSprite->GetHeight()));
 }
 
-/************
-* SetHeight: Sets the height of the entity
-* @parameter: _f - the height of the entity
-*************/
+
+//Sets the height of the entity
+
 void CEntity::SetHeight(float _f)
 {
 	m_fHeight = _f;
 }
 
-/************
-* SetWidth: Sets the width of the entity
-* @parameter: _f - Sets the width of the entity
-*************/
+//Sets the width of the entity
+
 void CEntity::SetWidth(float _f)
 {
 	m_fWidth = _f;
 }
 
-/************
-* GetWidth: Gets the width of the entity/sprite
-* @return m_pSprite->GetWidth() - width of sprite
-*************/
+// Gets the width of the entity/sprite
+
 float CEntity::GetWidth() const
 {
 	return (static_cast<float>(m_pSprite->GetWidth()));
 }
 
-/************
-* SetX: Sets the X position of the entity
-* @parameter: _f - the X position of the entity. Adds half the width of the sprite 
-*************/
+// Sets the X position of the entity
+
 void CEntity::SetX(float _f)
 {
 	m_fX = _f;
 }
 
-/************
-* SetY: Sets the Y position of the entity
-* @parameter: _f - the X position of the entity
-*************/
+//Sets the Y position of the entity
+
 void CEntity::SetY(float _f)
 {
 	m_fY = _f;
 }
 
-/************
-* GetX: Gets the X position of the entity
-* @return m_fX - entity x position
-*************/
+//Gets the X position of the entity
+
 float CEntity::GetX() const
 {
 	return (m_fX);
 }
 
-/************
-* GetY: Gets the Y position of the entity
-* @return m_fY - entity Y position
-*************/
+//Gets the Y position of the entity
+
 float CEntity::GetY() const
 {
 	return (m_fY);
 }
 
 
-/************
-* FlipOpenCard: Flips open the 
-* @return m_pSprite->GetWidth() - width of sprite
-*************/
+//Flips open the 
+
 void CEntity::FlipOpenCard(bool _open, CEntity& e)
 {
 	//Switch sprites
