@@ -1,54 +1,133 @@
 
+#include "Clock.h"
+#include "BackBuffer.h"
+#include "utils.h"
 
 #include "Game.h"
-#include "Card.h"
+
+
+CGame* CGame::pGame = 0;
+int CGame::m_MouseX = 0;
+int CGame::m_MouseY = 0;
 
 
 
-Game::~Game(){
 
-	 
+CGame::CGame()
+: pLevel(0)
+, pClock(0)
+, hInstance(0)
+, _hwnd(0)
+, pBackbuffer(0)
+{
 }
 
-void Game::cGame(){
+CGame::~CGame()
+{
+	delete pLevel;
+	pLevel = 0;
 
+    delete pBackbuffer;
+    pBackbuffer = 0;
+
+    delete pClock;
+    pClock = 0;
+}
+
+bool CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeight)
+{
+    hInstance = _hInstance;
+    _hwnd = _hWnd;
+
+    pClock = new CClock();
+    VALIDATE(pClock->Initialise());
+    pClock->Process();
+
+    pBackbuffer = new CBackBuffer();
+    VALIDATE(pBackbuffer->Initialise(_hWnd, _iWidth, _iHeight));
+
+	pLevel = new CLevel();
+	VALIDATE(pLevel->Initialise(_iWidth, _iHeight));
+
+    return (true);
+}
+
+void CGame::Draw()
+{
+
+    pBackbuffer->Clear();
+
+	pLevel->Draw();
+
+    pBackbuffer->Present();
+}
+
+void CGame::Process(float deltaTime)
+{
+
+	pLevel->Process(deltaTime);
 
 }
 
-//used for the stacks at the top of the game
-void Game::aceStack(){
+void CGame::ExecuteOneFrame()
+{
+    float deltaTime = pClock->GetDeltaTick();
 
-	//check to see if the the cards are the same suit
-	//check to see if the value is 1 greater than what is already there
-	//use a doubly linked list, so we know what value is behind the current card
+    Process(deltaTime);
+    Draw();
 
+    pClock->Process();
 }
 
-//used for the 7 rows, stacking the cards
-void Game::stack(){
+CGame& CGame::GetInstance()
+{
+    if (pGame == 0)
+    {
+        pGame = new CGame();
+    }
 
-	//make sure that each stack knows what is below it
-	//if the player moves something then call this function
-	//if there is an empty space then flip over the card with the empty space after the player has made a legal move
-
-
-
+    return (*pGame);
 }
 
-void Game::deck(){
-
-	//use a stack to see what is the top card of the deck, when drawing
+void CGame::DestroyInstance()
+{
+    delete pGame;
+    pGame = 0;
 }
 
+CBackBuffer* CGame::GetBackBuffer()
+{
+    return (pBackbuffer);
+}
 
-void Game::usableCardFromDeck(){
+HINSTANCE CGame::GetAppInstance()
+{
+    return (hInstance);
+}
 
-	//pop from the deck stack in order to draw cards, 
-	//either 1 or 3 times depending on gamemode
+HWND CGame::GetWindow()
+{
+    return (_hwnd);
+}
 
+void CGame::NewGame()
+{
+	if (pLevel != nullptr)
+	{
+		delete pLevel;
+		pLevel = 0;
+	}
+	pLevel = new CLevel();
+	pLevel->Initialise(1195, 945);
+}
 
-	//move it to a new zone and start creating a new stack,
-	//when moving the revealed cards from the deck back to the deck,
-	//inverse the stack
+CLevel* CGame::GetLevelInstance()
+{
+	return (pLevel);
+}
 
+void CGame::GameOverWon()
+{
+	MessageBox(_hwnd, L"You Won!", L"Game Over", MB_OK);
+	CGame::NewGame();
 }
